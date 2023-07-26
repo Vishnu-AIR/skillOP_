@@ -24,7 +24,7 @@ ReactDOM.render(
       >
         <Provider store={store}>
           {/* <App /> */}
-          <App />
+          <Auth />
           {/* <UPI /> */}
         </Provider>
       </Auth0Provider>
