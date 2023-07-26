@@ -14,6 +14,9 @@ import UPI from "./UPIpage";
 import Slot from "./Slot";
 import SlotBooking from "./SlotBooking";
 import Payment from "./Payment";
+import Kuchbhi from "./Kuchbhi";
+
+
 
 function App() {
   const myProfile = useSelector((s) => s.userReducer.myProfile);
@@ -36,20 +39,12 @@ function App() {
         <Route path="/Slot" element={<Slot />} />
         <Route path="/slotbooking" element={<SlotBooking />} />
         <Route path="/payment" element={<Payment />} />
+        
+        {/* Wrap the second set of routes in a Route component */}
+        <Route element={<Kuchbhi/>} />
+        
       </Routes>
 
-      {myProfile ? (
-        // Render when the user is logged in
-        <Route element={<RequireUser />}>
-          <Link to={`/profile/${getItem(EMAIL_KEY)}/info`}>Info</Link>
-          {/* Add other routes that require the user to be logged in */}
-        </Route>
-      ) : (
-        // Render when the user is not logged in
-        <Route element={<NotLoggedIn />}>
-          <Auth />
-        </Route>
-      )}
     </>
   );
 }
